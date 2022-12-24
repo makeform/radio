@@ -1,1 +1,5 @@
-# radio
+# @makeform/radio
+
+## License
+
+MIT
