@@ -16,7 +16,7 @@ mod = ({root, ctx, data, parent, t, i18n}) ->
       text:
         content: ({node}) ~> if @is-empty! => 'n/a' else t(@content!)
         "other-prompt": ({node}) ~>
-          if @mod.info.config.{}other.prompt => return that
+          if @mod.info.config.{}other.prompt => return t(that)
           else return t("其它")
 
       action:
