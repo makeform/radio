@@ -2,7 +2,7 @@
 
 ## v1.1.1
 
- -  i18n for other.prompt
+ - i18n for other.prompt
 
 
 ## v1.1.0
