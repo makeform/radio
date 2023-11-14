@@ -1,5 +1,10 @@
 # Change Logs
 
+## v1.1.2
+
+ - use `mf-note` to replace styling in note-related tag.
+
+
 ## v1.1.1
 
  - i18n for other.prompt
