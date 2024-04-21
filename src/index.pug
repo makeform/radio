@@ -8,7 +8,8 @@ div
       .m-edit: .mf-note.text-sm(ld="limitation")
     .text-sm.text-muted: div(ld="desc", style="margin:-.6em 0 .7em")
     .m-edit(ld="input"): .my-3
-      .d-flex.g-2.flex-wrap: .mr-2.clickable(ld-each="option",style="line-height:1em")
+      //- we have to use `label` for options so it will be actual clickable
+      .d-flex.g-2.flex-wrap: label.mb-0.mr-2.clickable(ld-each="option",style="line-height:1em")
         input.mr-1(ld="radio",type="radio")
         span(ld="text")
       div(ld="other"): label.clickable.d-flex.align-items-center

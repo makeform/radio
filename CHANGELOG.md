@@ -1,5 +1,10 @@
 # Change Logs
 
+## v1.1.4
+
+ - fix bug: radio entry should use `label` so it will be clickable
+
+
 ## v1.1.3
 
  - tweak radio list layout
