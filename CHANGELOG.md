@@ -1,5 +1,10 @@
 # Change Logs
 
+## v1.1.6
+
+ - tweak radio entry layout
+
+
 ## v1.1.5
 
  - tweak radio entry margin

@@ -9,7 +9,9 @@ div
     .text-sm.text-muted: div(ld="desc", style="margin:-.6em 0 .7em")
     .m-edit(ld="input"): .my-2
       //- we have to use `label` for options so it will be actual clickable
-      .d-flex.g-2.flex-wrap: label.mb-0.mr-2.clickable(ld-each="option",style="line-height:1em")
+      //- line-height 1.25em so multiline option (due to long content) looks better
+      //- flex box on label to separate text from radiobox even if text wrapped
+      .d-flex.g-2.flex-wrap: label.mb-0.mr-2.clickable.d-flex(ld-each="option",style="line-height:1.25em")
         input.mr-1(ld="radio",type="radio")
         span(ld="text")
       div(ld="other"): label.clickable.d-flex.align-items-center
