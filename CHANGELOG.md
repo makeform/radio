@@ -1,5 +1,10 @@
 # Change Logs
 
+## v1.2.0
+
+ - support object in values
+
+
 ## v1.1.6
 
  - tweak radio entry layout
