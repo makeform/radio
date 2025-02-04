@@ -1,5 +1,10 @@
 # Change Logs
 
+## v1.2.1
+
+ - fix bug: missing translaction when values are string
+
+
 ## v1.2.0
 
  - support object in values
