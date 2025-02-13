@@ -49,11 +49,14 @@ mod = ({root, ctx, data, parent, t, i18n}) ->
           key: -> getv(it)
           view:
             action: change: radio: ({node, ctx}) ~> if node.checked => @value getv(ctx)
-            handler: radio: ({node, ctx}) ~>
-              node.setAttribute \name, id
-              node.checked = @value! == getv(ctx)
-              if !@mod.info.meta.readonly => node.removeAttribute \disabled
-              else node.setAttribute \disabled, null
+            handler:
+              "@": ({node}) ~>
+                node.style.flexBasis = if (@mod.info.config or {}).layout == \block => "100%" else ''
+              radio: ({node, ctx}) ~>
+                node.setAttribute \name, id
+                node.checked = @value! == getv(ctx)
+                if !@mod.info.meta.readonly => node.removeAttribute \disabled
+                else node.setAttribute \disabled, null
             text: text: ({node, ctx}) -> getlabel(ctx)
 
   render: -> @mod.child.view.render!

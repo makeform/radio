@@ -1,5 +1,10 @@
 # Change Logs
 
+## v1.3.0
+
+ - add `layout` option for choosing layout mode (`inline` or `block`) of options.
+
+
 ## v1.2.1
 
  - fix bug: missing translaction when values are string
