@@ -1,5 +1,10 @@
 # Change Logs
 
+## v1.3.2
+
+ - fix bug: empty object passed to translator when no matched value found.
+
+
 ## v1.3.1
 
  - fix bug: values are not translated in view mode
