@@ -14,7 +14,8 @@ mod = ({root, ctx, data, parent, t, i18n}) ->
     getv = (t) -> if typeof(t) == \object => t.value else t
     getlabel = (s) -> if typeof(s) == \object => t(s.label) else t(s)
     tolabel = (s) ->
-      r = ((lc.values or []).filter(-> getv(it) == s).0 or {}).label
+      r = ((lc.values or []).filter(-> getv(it) == s).0 or {})
+      r = r.label or r
       return if r => t(r) else s
     inside = (v) ~> v in (@mod.info.config.values or []).map(-> getv it)
     @mod.child.view = view = new ldview do
