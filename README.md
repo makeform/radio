@@ -1,5 +1,8 @@
 # @makeform/radio
 
+Radio style widget for users to make one single choice between multiple options.
+
+
 ## Configs
 
  - `values`: Array of string/objects for options in this widget.
