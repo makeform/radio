@@ -1,5 +1,10 @@
 # Change Logs
 
+## v2.0.2
+
+ - fix bug: when using label / value pairs, value instead of label is shown in view mode
+
+
 ## v2.0.1
 
  - fix bug: content in view mode isn't translated

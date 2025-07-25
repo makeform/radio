@@ -18,6 +18,10 @@ mod = ({root, ctx, data, parent, t, i18n}) ->
       r = if r and r.label => r.label else r
       return if r => t(r) else if typeof(s) == \string => t(s) else s
     inside = (v) ~> v in (@mod.info.config.values or []).map(-> getv it)
+    remeta = ~> lc.values = (@mod.info.config or {}).values or []
+    remeta!
+    @on \meta, ~> remeta!
+
     @mod.child.view = view = new ldview do
       root: root
       text:
