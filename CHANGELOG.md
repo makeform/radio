@@ -1,5 +1,10 @@
 # Change Logs
 
+## v3.0.1
+
+ - store and use key for entry matching if key is available
+
+
 ## v3.0.0
 
  - support `@grantdash/composer` host
