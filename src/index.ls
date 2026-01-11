@@ -20,13 +20,13 @@ mod = ({root, ctx, data, parent, t, i18n, host}) ->
   {ldview} = ctx
   lc = {}
   hitf = ~> @hitf
-  getv = (t) -> if typeof(t) == \string => t else (t?value or hitf!totext(hitf!content(t?label)))
+  getv = (t) -> if typeof(t) == \string => t else (t?value or hitf!totext(t?label))
   value-to-label = (v) ->
-    r = (lc[]values).filter(-> getv(it) == v).0
+    r = (lc[]values).filter(-> getkey(it) == v).0
     r = r?label or if r? => r else if v? => v
     if typeof(r) == \object => return hitf!totext(r)
     else if typeof(r) == \string => t(r) else (r or '')
-  inside = (v) ~> v in (lc.values or []).map(-> getv it)
+  inside = (v) ~> v in (lc.values or []).map(-> getkey it)
   id = "_#{Math.random!toString(36)substring(2)}"
   keygen = -> "#{Date.now!}-#{keygen.idx = (keygen.idx or 0) + 1}-#{Math.random!toString(36)substring(2)}"
   getkey = -> it.key or getv(it)
@@ -42,11 +42,9 @@ mod = ({root, ctx, data, parent, t, i18n, host}) ->
       ]
   init: ->
     @on \change, ~> @mod.child.view.render \option
-
     remeta = ~> lc.values = (@mod.info.config or {}).values or []
     remeta!
     @on <[meta]>, ~> remeta!
-
     @mod.child.view = view = lc.view = new ldview do
       root: root
       text:
@@ -90,7 +88,7 @@ mod = ({root, ctx, data, parent, t, i18n, host}) ->
           view:
             action:
               change:
-                radio: ({node, ctx}) ~> if node.checked => @value getv(ctx)
+                radio: ({node, ctx}) ~> if node.checked => @value getkey(ctx)
               click:
                 "@": ({node, evt}) ->
                   # label dynamics force us to prevent propagation for clicking on editor.
@@ -107,7 +105,7 @@ mod = ({root, ctx, data, parent, t, i18n, host}) ->
                 node.style.flexBasis = if (@mod.info.config or {}).layout == \block => "100%" else ''
               radio: ({node, ctx}) ~>
                 node.setAttribute \name, id
-                node.checked = @value! == getv(ctx)
+                node.checked = @value! == getkey(ctx)
                 if !@mod.info.meta.readonly => node.removeAttribute \disabled
                 else node.setAttribute \disabled, null
               text: hitf!render obj: ({ctx}) -> ctx.label or ctx
