@@ -1,5 +1,10 @@
 # Change Logs
 
+## v3.0.2
+
+ - use cps-hover-host and cps-hover-reveal to replace cps-hover class
+
+
 ## v3.0.1
 
  - store and use key for entry matching if key is available
