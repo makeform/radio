@@ -1,5 +1,10 @@
 # Change Logs
 
+## v3.1.0
+
+ - support disabling options
+
+
 ## v3.0.2
 
  - use cps-hover-host and cps-hover-reveal to replace cps-hover class
