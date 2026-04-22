@@ -1,5 +1,10 @@
 # Change Logs
 
+## v2.1.0
+
+ - support disabling options
+
+
 ## v2.0.1
 
  - fix bug: content in view mode isn't translated

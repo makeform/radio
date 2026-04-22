@@ -51,13 +51,15 @@ mod = ({root, ctx, data, parent, t, i18n}) ->
           view:
             action: change: radio: ({node, ctx}) ~> if node.checked => @value getv(ctx)
             handler:
-              "@": ({node}) ~>
+              "@": ({node, ctx}) ~>
                 node.style.flexBasis = if (@mod.info.config or {}).layout == \block => "100%" else ''
+                node.classList.toggle \text-muted, ctx.enabled == false
               radio: ({node, ctx}) ~>
                 node.setAttribute \name, id
                 node.checked = @value! == getv(ctx)
-                if !@mod.info.meta.readonly => node.removeAttribute \disabled
-                else node.setAttribute \disabled, null
+                is-disabled = @mod.info.meta.readonly or ctx.enabled == false
+                if is-disabled => node.setAttribute \disabled, null
+                else node.removeAttribute \disabled
             text: text: ({node, ctx}) -> getlabel(ctx)
 
   render: -> @mod.child.view.render!
