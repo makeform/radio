@@ -9,8 +9,7 @@ Radio style widget for users to make one single choice between multiple options.
    - when object is used, it contains following fields:
      - `value`: actual value picked
      - `label`: text shown for user to select
-     - `enabled`: default `true`. when set to `false`, the option is grayed out and cannot be selected.
-       - if the option is already selected, it remains visually checked but still cannot be interacted with.
+     - `enabled`: default `true`. when set to `false`, the option is grayed out and cannot be selected. if the option is already selected, it remains visually checked but still cannot be interacted with.
  - `other`: default null. An object for config of `other` option, with following fields:
    - `enabled`: default false. should `other` option be shown.
    - `prompt`: default `其它` or `Other`. Prompt text for `other` option.

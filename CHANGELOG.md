@@ -1,28 +1,8 @@
 # Change Logs
 
-## v3.1.0
+## v2.1.0
 
  - support disabling options
-
-
-## v3.0.2
-
- - use cps-hover-host and cps-hover-reveal to replace cps-hover class
-
-
-## v3.0.1
-
- - store and use key for entry matching if key is available
-
-
-## v3.0.0
-
- - support `@grantdash/composer` host
-
-
-## v2.0.2
-
- - fix bug: when using label / value pairs, value instead of label is shown in view mode
 
 
 ## v2.0.1
