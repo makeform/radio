@@ -101,13 +101,15 @@ mod = ({root, ctx, data, parent, t, i18n, host}) ->
                   hitf!set!
                 text: hitf!edit {obj: ({ctx}) -> ctx.{}label}
             handler:
-              "@": ({node}) ~>
+              "@": ({node, ctx}) ~>
                 node.style.flexBasis = if (@mod.info.config or {}).layout == \block => "100%" else ''
+                node.classList.toggle \text-muted, ctx.enabled == false
               radio: ({node, ctx}) ~>
                 node.setAttribute \name, id
                 node.checked = @value! == getkey(ctx)
-                if !@mod.info.meta.readonly => node.removeAttribute \disabled
-                else node.setAttribute \disabled, null
+                is-disabled = @mod.info.meta.readonly or ctx.enabled == false
+                if is-disabled => node.setAttribute \disabled, null
+                else node.removeAttribute \disabled
               text: hitf!render obj: ({ctx}) -> ctx.label or ctx
 
   render: -> @mod.child.view.render!
