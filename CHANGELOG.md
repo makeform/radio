@@ -1,5 +1,10 @@
 # Change Logs
 
+## v2.1.1
+
+ - fix bug: released index.html is empty. rebuild dist to fix
+
+
 ## v2.1.0
 
  - support disabling options
