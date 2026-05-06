@@ -41,6 +41,8 @@ mod = ({root, ctx, data, parent, t, i18n, host}) ->
       * key: keygen!, label: hitf!wrap "#{i18n.language}": 'Option 3'
       ]
   init: ->
+    @mod.valdef = "@plotdb/form:valdef/choice"
+    @mod.valspec = ~> values: lc.values
     @on \change, ~> @mod.child.view.render \option
     remeta = ~> lc.values = (@mod.info.config or {}).values or []
     remeta!
