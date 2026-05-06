@@ -42,7 +42,9 @@ mod = ({root, ctx, data, parent, t, i18n, host}) ->
       ]
   init: ->
     @mod.valdef = "@plotdb/form:valdef/choice"
-    @mod.valspec = ~> values: lc.values
+    @mod.valspec = ~>
+      values: lc.values.map (v) ->
+        key: v.key or v, value: v.value or v, label: hitf!totext(v.label or v.value or v.key or v)
     @on \change, ~> @mod.child.view.render \option
     remeta = ~> lc.values = (@mod.info.config or {}).values or []
     remeta!

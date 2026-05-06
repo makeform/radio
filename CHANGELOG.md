@@ -1,5 +1,10 @@
 # Change Logs
 
+## v3.2.0
+
+ - add valspec and valldef
+
+
 ## v3.1.0
 
  - support disabling options
