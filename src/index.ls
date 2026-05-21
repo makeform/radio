@@ -78,7 +78,8 @@ mod = ({root, ctx, data, parent, t, i18n, host}) ->
           node.setAttribute \name, id
           if !@mod.info.meta.readonly => node.removeAttribute \disabled
           else node.setAttribute \disabled, null
-          node.checked = !inside(@value!)
+          v = @value!
+          node.checked = !inside(v) and v == ''
         "other-text": ({node}) ~>
           if !@mod.info.meta.readonly => node.removeAttribute \readonly
           else node.setAttribute \readonly, null
@@ -94,6 +95,10 @@ mod = ({root, ctx, data, parent, t, i18n, host}) ->
               change:
                 radio: ({node, ctx}) ~> if node.checked => @value getkey(ctx)
               click:
+                radio: ({node, ctx}) ~>
+                  if @value! != getkey(ctx) => return
+                  @value null
+                  node.checked = false
                 "@": ({node, evt}) ->
                   # label dynamics force us to prevent propagation for clicking on editor.
                   if !(node.parentNode and (n = ld$.find(node.parentNode,'[ld=editor]',0))) => return

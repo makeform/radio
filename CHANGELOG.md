@@ -1,5 +1,10 @@
 # Change Logs
 
+## v3.2.1
+
+ - support uncheck functionality
+
+
 ## v3.2.0
 
  - add valspec and valldef
