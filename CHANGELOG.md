@@ -1,5 +1,10 @@
 # Change Logs
 
+## v2.1.2
+
+ - support uncheck functionality
+
+
 ## v2.1.1
 
  - fix bug: released index.html is empty. rebuild dist to fix

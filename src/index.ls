@@ -39,7 +39,8 @@ mod = ({root, ctx, data, parent, t, i18n}) ->
           node.setAttribute \name, id
           if !@mod.info.meta.readonly => node.removeAttribute \disabled
           else node.setAttribute \disabled, null
-          node.checked = !inside(@value!)
+          v = @value!
+          node.checked = !inside(v) and v == ''
         "other-text": ({node}) ~>
           if !@mod.info.meta.readonly => node.removeAttribute \readonly
           else node.setAttribute \readonly, null
@@ -49,7 +50,12 @@ mod = ({root, ctx, data, parent, t, i18n}) ->
           list: ~> @mod.info.config.values or []
           key: -> getv(it)
           view:
-            action: change: radio: ({node, ctx}) ~> if node.checked => @value getv(ctx)
+            action:
+              change: radio: ({node, ctx}) ~> if node.checked => @value getv(ctx)
+              click: radio: ({node, ctx}) ~>
+                if @value! != getv(ctx) => return
+                @value null
+                node.checked = false
             handler:
               "@": ({node, ctx}) ~>
                 node.style.flexBasis = if (@mod.info.config or {}).layout == \block => "100%" else ''
