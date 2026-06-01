@@ -7,7 +7,7 @@
 
 ## v3.2.0
 
- - add valspec and valldef
+ - add valspec and valdef
 
 
 ## v3.1.0
