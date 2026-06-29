@@ -58,9 +58,7 @@ mod = ({root, ctx, data, parent, t, i18n, host}) ->
         change: "other-radio": ({node, ctx}) ~>
           if inside(@value!) or !@value! => @value ''
         click:
-          "other-prompt": hitf!edit obj: ({ctx}) ->
-            o = hitf!get!{}config{}other
-            o.prompt = if typeof(o.prompt) == \string => {} else (o.prompt or {})
+          "other-prompt": hitf!edit path: "config.other.prompt"
           add: ({node, views}) ~>
             new-entry = do
               label: hitf!wrap "#{i18n.language}": "untitled"
@@ -108,7 +106,7 @@ mod = ({root, ctx, data, parent, t, i18n, host}) ->
                   cfg = hitf!get!{}config
                   cfg.values = cfg.[]values.filter -> getkey(it) != getkey(ctx)
                   hitf!set!
-                text: hitf!edit {obj: ({ctx}) -> ctx.{}label}
+                text: hitf!edit path: \label, from-ctx: true
             handler:
               "@": ({node, ctx}) ~>
                 node.style.flexBasis = if (@mod.info.config or {}).layout == \block => "100%" else ''

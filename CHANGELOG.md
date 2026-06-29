@@ -1,5 +1,10 @@
 # Change Logs
 
+## v3.2.2
+
+ - fix bug: string can't be edited. use `fromCtx` to simplify this implementation
+
+
 ## v3.2.1
 
  - support uncheck functionality
