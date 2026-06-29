@@ -1,5 +1,10 @@
 # Change Logs
 
+## v3.2.3
+
+ - upgrade dependencies
+
+
 ## v3.2.2
 
  - fix bug: string can't be edited. use `fromCtx` to simplify this implementation
